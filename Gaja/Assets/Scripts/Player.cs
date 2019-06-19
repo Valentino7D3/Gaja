@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+	public Animator anim;
 	public GameObject WorldGenerator;
 	public Rigidbody rb;
 	public bool onGround = false;
@@ -35,12 +36,21 @@ public class Player : MonoBehaviour
 			}
 
 		}
+
+		if(rb.velocity.x > 0){
+			//ManWalk animation
+		}
+		if(rb.velocity.x < 0){
+			//Flip Character
+			//ManWalk animation
+		}
     }
 
 	void FixedUpdate(){
 
 		if(Input.GetKey("space") && onGround){
-			rb.AddForce(new Vector3(0, 80000 * Time.deltaTime, 0));
+			rb.velocity = rb.velocity + new Vector3(0, 5, 0);
+			//rb.AddForce(new Vector3(0, 80000 * Time.deltaTime, 0));
 			onGround = false;
 		}
 		if(Input.GetKey("a") && rb.velocity.x > -maxHorizontalVelocity){
@@ -48,6 +58,7 @@ public class Player : MonoBehaviour
 
 		}
 		if(Input.GetKey("d") && rb.velocity.x < maxHorizontalVelocity){
+
 			rb.AddForce(new Vector3(acceleration * Time.deltaTime, 0, 0));
 			//rb.velocity = rb.velocity + new Vector3(0.1f, 0, 0);
 
