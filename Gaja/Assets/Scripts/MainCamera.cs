@@ -6,6 +6,7 @@ public class MainCamera : MonoBehaviour
 {
 	public GameObject Player;
 	public Transform tf;
+	public float camera_distance = 20;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,6 @@ public class MainCamera : MonoBehaviour
     void Update()
     {
 		//Debug.Log("Updating Camera to: " + Player.transform.position.x + "; " + Player.transform.position.y);
-        tf.position = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z - 10);
+        tf.position = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z - camera_distance);
     }
 }
