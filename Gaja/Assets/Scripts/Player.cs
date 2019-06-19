@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 	public float acceleration = 20000;
 	RaycastHit hit;
 
-		private static Vector3 mouseDownPoint;
+	private static Vector3 mouseDownPoint;
 	private static Vector3 mouseUpPoint;
 	private static Vector3 currentMousePoint;
 	private float raycastLength = Mathf.Infinity;
